@@ -12,6 +12,8 @@ public class TelaInicialCandidato {
 	
 	
 	public void telaInicial(String cpfValidador) throws FileNotFoundException {
+		
+		//Essas 3 linhas puxam as informações do txt e transformam em um lista. Ademais, puxa o candidato que logou no sistema
 		ListaCandidatos lista = new ListaCandidatos();
 		lista.buscaCandidatosNoTxt();
 		Candidato candidato = lista.buscaCandidatoPorCPF(cpfValidador);
@@ -23,7 +25,7 @@ public class TelaInicialCandidato {
 			"2 - Verificar Situação no Processo Seletivo" + "\n" + "9 - Voltar"));
 			
 //			switch(opc) {
-//				case1: // candidato.setProcesso(processo.getCurso());
+//				case1: // 
 //				case2: //
 //			}
 		}		
