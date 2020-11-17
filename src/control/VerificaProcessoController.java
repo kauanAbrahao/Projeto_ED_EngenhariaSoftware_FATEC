@@ -18,7 +18,7 @@ public class VerificaProcessoController {
 		
 		while(scan.hasNext()) {
 			if(verificacao.contains(candidato.getCpf())) {
-				for(int i = 0; i<=6; i++) {
+				for(int i = 0; i <= 6; i ++) {
 					verificacao = scan.nextLine();
 				}
 				
@@ -26,21 +26,19 @@ public class VerificaProcessoController {
 			if(verificacao.contentEquals("Sem status")) {
 				JOptionPane.showMessageDialog(null, "Sua inscrição ainda está sendo processada");
 			}
-			
-			//Adicionar os outros ifs para as outras situação (deferido ou indeferido)
-			break;
-			
-				
+			if(verificacao.contentEquals("Inscrição aprovada")) {
+				JOptionPane.showMessageDialog(null, "Sua inscrição foi deferida");
 			}
+			if(verificacao.contentEquals("Inscrição reprovada")) {
+				JOptionPane.showMessageDialog(null, "Sua inscrição foi indeferida");
+			}
+			
+			break;
+							
+			}
+			
 		verificacao = scan.nextLine();
 			
-			}
 		}
-		
-		
-		
-		
-		
 	}
-
-
+}
