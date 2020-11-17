@@ -16,6 +16,7 @@ public class Candidato {
 	private String notaLattes;
 	private String notaFinal;
 	private String status;
+	private String dataEntrevista;
 	
 	
 	
@@ -93,6 +94,14 @@ public class Candidato {
 	
 	public String getNotaEntrevista() {
 		return notaEntrevista;
+	}
+
+	public String getDataEntrevista() {
+		return dataEntrevista;
+	}
+
+	public void setDataEntrevista(String dataEntrevista) {
+		this.dataEntrevista = dataEntrevista;
 	}
 
 	public void setNotaEntrevista(String notaEntrevista) {
