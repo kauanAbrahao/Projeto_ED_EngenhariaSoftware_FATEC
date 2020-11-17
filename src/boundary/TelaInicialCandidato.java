@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 
 import javax.swing.JOptionPane;
 
+import control.VerificaProcessoController;
 import entities.Candidato;
 import entities.ListaCandidatos;
 
@@ -17,6 +18,7 @@ public class TelaInicialCandidato {
 		ListaCandidatos lista = new ListaCandidatos();
 		lista.buscaCandidatosNoTxt();
 		Candidato candidato = lista.buscaCandidatoPorCPF(cpfValidador);
+		VerificaProcessoController processo = new VerificaProcessoController();
 		
 		int opc = -1;
 		
@@ -24,10 +26,14 @@ public class TelaInicialCandidato {
 			opc = Integer.parseInt(JOptionPane.showInputDialog("== OPÇÕES PARA O CANDIDATO ==" + "\n" + "1 - Inscrição em Processo Seletivo" + "\n" + 
 			"2 - Verificar Situação no Processo Seletivo" + "\n" + "9 - Voltar"));
 			
-//			switch(opc) {
-//				case1: // 
-//				case2: //
-//			}
+			switch(opc) {
+				case 1: System.out.println("falta implementar");
+				break;
+					
+				case 2: processo.verificaProcesso(candidato);
+				break;
+			}
+			
 		}		
 		
 			
