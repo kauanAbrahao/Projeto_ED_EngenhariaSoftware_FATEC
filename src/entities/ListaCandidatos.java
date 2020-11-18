@@ -147,10 +147,10 @@ public class ListaCandidatos {
 	public void buscaCandidatosNoTxt() throws FileNotFoundException {
 		String dir = System.getProperty("user.dir");
 		Scanner scan = new Scanner(new File(dir + "//Cadastros1.txt"));
+		scan.nextLine();
+		scan.nextLine();
 		
 	while(scan.hasNext()) {
-		scan.nextLine();
-		scan.nextLine();
 		String nome = scan.nextLine();
 		String telefone = scan.nextLine();
 		String cpf = scan.nextLine();

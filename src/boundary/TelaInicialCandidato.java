@@ -1,12 +1,11 @@
 package boundary;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import javax.swing.JOptionPane;
 
-import control.VerificaProcessoController;
 import control.InscricaoProcessoController;
+import control.VerificaProcessoController;
 import entities.Candidato;
 import entities.ListaCandidatos;
 
