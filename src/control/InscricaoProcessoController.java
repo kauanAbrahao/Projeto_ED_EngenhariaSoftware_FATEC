@@ -1,20 +1,11 @@
 package control;
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.PrintWriter;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import javax.swing.JOptionPane;
-
-import entities.Candidato;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
@@ -23,84 +14,78 @@ import entities.Candidato;
 public class InscricaoProcessoController {
 	
 	public void inscreveProcesso(Candidato candidato) throws IOException {
-		JOptionPane.showMessageDialog(null, "Agora, vamos cadastrar suas informações");
-		boolean valido = false;
-//		String Inscricao = "";
-		String Lattes = "";
-		String Historico = "";
-		
-		String dir = System.getProperty("user.dir");
-		Scanner scan = new Scanner(new File(dir + "//Cadastros1.txt"));
-		String verificacao = scan.nextLine();
-		
-		while(scan.hasNext()) {
-			if(verificacao.contains(candidato.getCpf())) {
-				for(int i = 0; i <= 7; i ++) {
-					verificacao = scan.nextLine();
-				}
-				//while(!valido) {
-					//Inscricao = JOptionPane.showInputDialog("Inserir nome completo: ");
-					//Pattern patern = Pattern.compile("^[a-zA-Z_ ]*$");
-					//Matcher match = patern.matcher(Inscricao);
-					//valido = confereInformacoes(Inscricao, patern, match);
-				//}
-				//candidato.setProcessoSeletivo(Inscricao);
-				valido = false;
-				while(!valido) {
-					Lattes = JOptionPane.showInputDialog("Inserir o currículo Lattes ");
-					Pattern patern = Pattern.compile("^[a-zA-Z_ ]*$");
-					Matcher match = patern.matcher(Lattes);
-					valido = confereInformacoes(Lattes, patern, match);
-				}
-				candidato.setLattes(Lattes);
-				
-				valido = false;
-				while(!valido) {
-					Lattes = JOptionPane.showInputDialog("Inserir o Histórico ");
-					Pattern patern = Pattern.compile("^[a-zA-Z_ ]*$");
-					Matcher match = patern.matcher(Historico);
-					valido = confereInformacoes(Historico, patern, match);
-				}
-				candidato.setHistorico(Historico);
+		if(candidato.getStatus().contains("semstatus")) {
+			JOptionPane.showMessageDialog(null, "== PROCESSOS ABERTOS == " + "\n" + "1 - " + candidato.getProcessoSeletivo().getCurso());
 			
+			String lattes = JOptionPane.showInputDialog("Para se cadastrar, você precisa inserir alguns documentos\nInsira o link do seu Curriculo Lattes:");
+			String historico = JOptionPane.showInputDialog("Por favor, anexe o seu histórico unviersitário: ");
 			
-			break;
-							
-			}
+			candidato.setLattes(lattes);
+			candidato.setHistorico(historico);
+			candidato.setStatus("naoanalisado");
+			
+			alteraTxtComDadosNovos(candidato);
+		
+		} else {
+			JOptionPane.showMessageDialog(null, "Você já se cadastrou no Processo Seletivo!");
 		}
-			
-//		verificacao = scan.nextLine();
-			
-		}
-		
-//		BufferedWriter gravar = new BufferedWriter(new FileWriter(dir + "//Cadastros1.txt", true));
-//		
-////		
-//		Scanner scan1 = new Scanner(new File(dir + "//Cadastros1.txt"));
-//		String verificacao1 = scan1.nextLine();
-//		
-////		scan1.nextLine();
-////		scan1.nextLine();
-////		scan1.nextLine();
-////		scan1.nextLine();
-////		scan1.nextLine();
-////		scan1.nextLine();
-////		gravar.write(Lattes);
-////		//gravar.write(Historico);
-////		gravar.close();
-		
-		
-		
-		
-
+	}
 	
-
-
-
-private boolean confereInformacoes(String lattes, Pattern patern, Matcher match) {
-		// TODO Auto-generated method stub
-		return true;
+	
+	
+	public void alteraTxtComDadosNovos(Candidato candidato) throws IOException {
+		String path = System.getProperty("user.dir");
+		String nome = "CadastrosGerais.txt";
+		File arq = new File(path, nome);
+		String conteudoAntigo = readTxt(path, nome);
+		BufferedReader reader = null;
+		FileWriter writer = null;
+		StringBuffer buffer = new StringBuffer();
+		
+		try {
+			reader = new BufferedReader(new FileReader(arq));
+			String linha = reader.readLine();
+			while(linha!=null) {
+				buffer.append(conteudoAntigo + linha + System.lineSeparator());
+				linha = reader.readLine();
+			}
+			
+			String conteudonovo = conteudoAntigo.replaceAll("semlattes", candidato.getLattes());
+			conteudonovo = conteudonovo.replaceAll("semhistorico", candidato.getHistorico());
+			conteudonovo = conteudonovo.replaceAll("semstatus", candidato.getStatus());
+			writer = new FileWriter(arq);
+			writer.write(conteudonovo);
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			reader.close();
+			writer.close();
+		}
 	}
 
 
-}
+
+	private String readTxt(String path, String nome) throws IOException {
+		File arq = new File(path, nome);
+		StringBuffer conteudo = new StringBuffer();
+		if(arq.exists() && arq.isFile()) {
+			FileInputStream fluxo = new FileInputStream(arq); //abre o arquivo
+			InputStreamReader leitor = new InputStreamReader(fluxo); //lê e converte o arquivo
+			BufferedReader buffer = new BufferedReader(leitor); // coloca o arquivo no buffer 
+			
+			String linha = buffer.readLine();
+			while(linha != null) { // procurando EOF (End of File)
+				conteudo.append(linha + System.lineSeparator());
+				linha = buffer.readLine();
+			}
+			buffer.close();
+			leitor.close();
+			fluxo.close();
+			
+		} else {
+			throw new IOException("Arquivo inválido");
+		}
+		
+		return conteudo.toString();
+	}
+}	

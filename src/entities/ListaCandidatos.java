@@ -168,6 +168,9 @@ public class ListaCandidatos {
 			inserirFim(novocandidato);
 			linha = buffer.readLine();
 		}
+		buffer.close();
 	}
+	
+//	---------------------------------------------------------------------
 
 }
