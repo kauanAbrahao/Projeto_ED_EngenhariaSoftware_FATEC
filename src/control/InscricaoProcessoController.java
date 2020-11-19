@@ -69,8 +69,19 @@ public class InscricaoProcessoController {
 		}
 		
 		BufferedWriter gravar = new BufferedWriter(new FileWriter(dir + "//Cadastros1.txt", true));
+		
+		
+		Scanner scan1 = new Scanner(new File(dir + "//Cadastros1.txt"));
+		String verificacao1 = scan1.nextLine();
+		
+		scan1.nextLine();
+		scan1.nextLine();
+		scan1.nextLine();
+		scan1.nextLine();
+		scan1.nextLine();
+		scan1.nextLine();
 		gravar.write(Lattes);
-		gravar.write(Historico);
+		//gravar.write(Historico);
 		gravar.close();
 		
 		
@@ -81,7 +92,7 @@ public class InscricaoProcessoController {
 	
 private boolean confereInformacoes(String lattes, Pattern patern, Matcher match) {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 
