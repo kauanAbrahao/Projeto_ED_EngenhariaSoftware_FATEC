@@ -1,8 +1,10 @@
 package entities;
 
+import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class ListaCandidatos {
 	Candidato inicio;
@@ -120,12 +122,16 @@ public class ListaCandidatos {
 //	}
 	
 //	----------------------------------------------------------
-	public Candidato buscaCandidatoPorCPF(String cpf) {
+	public Candidato buscaCandidatoPorLoginSenha(String usuario, String senha) {
 		Candidato aux = inicio;
 		while(aux != null) {
-			if (aux.getCpf().contains(cpf)) {
+			if (
+				(aux.getLogin().contains(usuario)) 
+				&& 
+				(aux.getSenha().contains(senha))) {
 				return aux;
 			}
+			aux = aux.getProximo();
 		}
 		return null;
 		
@@ -144,32 +150,24 @@ public class ListaCandidatos {
 	}
 	
 //	-----------------------------------------------------------------------------
-	public void buscaCandidatosNoTxt() throws FileNotFoundException {
-		String dir = System.getProperty("user.dir");
-		Scanner scan = new Scanner(new File(dir + "//Cadastros1.txt"));
-		scan.nextLine();
-		scan.nextLine();
+	public void buscaCandidatosPersistidos() throws IOException {
 		
-	while(scan.hasNext()) {
-		String nome = scan.nextLine();
-		String telefone = scan.nextLine();
-		String cpf = scan.nextLine();
-		String processo = scan.nextLine();
-		String lattes = scan.nextLine();
-		String historico = scan.nextLine();
-		String notaLattes = scan.nextLine();
-		String notaEntrevista = scan.nextLine();
-		String notaFinal = scan.nextLine();
-		String status = scan.nextLine();
-		Candidato novocandidato = new Candidato(nome, telefone, cpf, processo, lattes, historico, notaLattes, notaEntrevista, notaFinal, status);
-		inserirFim(novocandidato);
-		if(scan.hasNext()) {
-			scan.nextLine();
-			scan.nextLine();
+		String path = System.getProperty("user.dir");
+		String nome = "CadastrosGerais.txt";
+		
+		File arq = new File(path, nome);
+		FileInputStream fluxo = new FileInputStream(arq);
+		InputStreamReader reader = new InputStreamReader(fluxo);
+		BufferedReader buffer = new BufferedReader(reader);
+		String linha = buffer.readLine();
+		
+		while(linha!=null) {
+			String[] parte = linha.split("\\,");
+			Candidato novocandidato = new Candidato(parte[0], parte[1], parte[2], parte[3], parte[4], parte[5], parte[6], parte[7],
+					parte[8], parte[9], parte[10], parte[11]);
+			inserirFim(novocandidato);
+			linha = buffer.readLine();
 		}
-	}
-		scan.close();
-		
 	}
 
 }

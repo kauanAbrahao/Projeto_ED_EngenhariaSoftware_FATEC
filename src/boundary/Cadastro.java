@@ -1,8 +1,9 @@
 package boundary;
 
-import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -11,9 +12,9 @@ import javax.swing.JOptionPane;
 import entities.Candidato;
 
 public class Cadastro {
+	Candidato candidato = new Candidato();
 	
 	public void cadastrarCandidato() throws IOException {
-		Candidato candidato = new Candidato();
 		String pass_cadastra = null;
 		String user_cadastra = JOptionPane.showInputDialog("Escolha um nome de usuário: ");
 		boolean sucesso = false;
@@ -21,12 +22,12 @@ public class Cadastro {
 		while(!sucesso) { //Toda a lógica para cadastrar usuário e senha está dentro deste while
 			sucesso = cadastraUsuarioSenha(user_cadastra, pass_cadastra);
 		}
-		cadastraDados(candidato);
-		
-				
+		cadastraDados();
+		persisteDados();			
 	}
 	
-//	--------------------------------------------------------------------------------------------------------
+
+	//	--------------------------------------------------------------------------------------------------------
 	private boolean cadastraUsuarioSenha(String user_cadastra, String pass_cadastra) throws IOException {
 		
 		//Cadastra usuário e senha
@@ -38,17 +39,15 @@ public class Cadastro {
 		}
 		else {
 			JOptionPane.showMessageDialog(null, "Login e senha cadastrados com sucesso");
+			candidato.setLogin(user_cadastra);
+			candidato.setSenha(pass_cadastra);
 			
-		//Grava usuário e senha no arquivo txt
-		String dir = System.getProperty("user.dir");
-		BufferedWriter gravar = new BufferedWriter(new FileWriter(dir + "//Cadastros1.txt", true));
-		gravaCadastroSenhaUsuario(dir, gravar, user_cadastra, pass_cadastra);
 		return true;
 		}
 		
 	}
 //	-------------------------------------------------------------------------------------------------------
-	private void cadastraDados(Candidato candidato) throws IOException {
+	private void cadastraDados() throws IOException {
 		
 		JOptionPane.showMessageDialog(null, "Agora, vamos cadastrar seus dados!");
 		boolean valido = false;
@@ -85,11 +84,6 @@ public class Cadastro {
 			
 		}
 		candidato.setCpf(cpf);
-
-		//Grava usuário e senha no arquivo txt
-		String dir = System.getProperty("user.dir");
-		BufferedWriter gravar = new BufferedWriter(new FileWriter(dir + "//Cadastros1.txt", true));
-		gravaCadastroNomeTelefoneCpf(dir, gravar, nome, telefone, cpf);
 		
 	}
 	
@@ -100,45 +94,48 @@ public class Cadastro {
 			return true;
 		}
 		else {
-			JOptionPane.showMessageDialog(null, "Informações inseridas inválidas. Por favor, tente novamente");
+			JOptionPane.showMessageDialog(null, "Informações inseridas inválidas. Verifique se os dados foram inseridos corretamente. "
+					+ "Por favor, tente novamente");
 			return false;
 		}
 	}
 	
 	// ----------------------------------------------------------------------------------------------------------
-		public void gravaCadastroSenhaUsuario(String dir, BufferedWriter gravar, String user_cadastra, String pass_cadastra) throws IOException {
-			gravar.write(user_cadastra);
-			gravar.newLine();
-			gravar.write(pass_cadastra);
-			gravar.newLine();
-			gravar.close();
+	public void persisteDados() throws IOException	{
+		String path = System.getProperty("user.dir");
+		String nome = "CadastrosGerais.txt";
+		
+		File dir = new File(path);
+		File arq = new File(path, nome);
+		if(dir.exists() && dir.isDirectory()) {
+			boolean existe = false;
+			if(arq.exists()) {
+				existe = true;
+			}
+			
+			String conteudo = geraEscrita();
+			FileWriter writer = new FileWriter(arq, existe);
+			PrintWriter print = new PrintWriter(writer);
+			print.write(conteudo);
+			print.flush();
+			print.close();
+			writer.close();
+			
+		} else {
+			throw new IOException("Diretório inválido");
 		}
-		//		---------------------------------------------------------------------------------------------------------
-		public void gravaCadastroNomeTelefoneCpf(String dir, BufferedWriter gravar, String nome, String telefone, String cpf) throws IOException {
-			gravar.write(nome);
-			gravar.newLine();
-			gravar.write(telefone);
-			gravar.newLine();
-			gravar.write(cpf);
-			gravar.newLine();
-			gravar.write("Sem inscricoes"); 
-			gravar.newLine();
-			gravar.write("semlattes");
-			gravar.newLine();
-			gravar.write("semhistorico");
-			gravar.newLine();
-			gravar.write("-1");
-			gravar.newLine();
-			gravar.write("-1");
-			gravar.newLine();
-			gravar.write("-1");
-			gravar.newLine();
-			gravar.write("Sem status");
-			gravar.newLine();
-			gravar.newLine();
-			gravar.close();
-		}
-//		-----------------------------------------------------------------------------------------------------------------
-	
+		
+	}
+
+	private String geraEscrita() {
+		StringBuffer buffer = new StringBuffer();
+
+		buffer.append(candidato.getLogin() + "," + candidato.getSenha() + "," + candidato.getNome() + "," + candidato.getCpf()
+		+ "," + candidato.getTelefone() + "," + candidato.getLattes() + "," + candidato.getHistorico() + "," + candidato.getNotaLattes()
+		+ "," + candidato.getNotaEntrevista() + "," + candidato.getNotaFinal() + "," + candidato.getStatus() + "," + 
+		candidato.getDataEntrevista() + "\n");
+		
+		return buffer.toString();
+	}
 
 }

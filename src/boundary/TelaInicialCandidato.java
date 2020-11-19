@@ -11,12 +11,9 @@ import entities.ListaCandidatos;
 
 public class TelaInicialCandidato {
 		
-	public void telaInicial(String cpfValidador) throws IOException {
+	public void telaInicial(Candidato candidato) throws IOException {
 		
-		//Essas 3 linhas puxam as informações do txt e transformam em um lista. Ademais, puxa o candidato que logou no sistema
-		ListaCandidatos lista = new ListaCandidatos();
-		lista.buscaCandidatosNoTxt();
-		Candidato candidato = lista.buscaCandidatoPorCPF(cpfValidador);
+		
 		VerificaProcessoController processo = new VerificaProcessoController();
 		InscricaoProcessoController inscreve = new InscricaoProcessoController();
 		

@@ -21,9 +21,10 @@ public class Candidato {
 	
 	
 	
-	public Candidato(String nome, String telefone, String cpf, String processoSeletivo, String lattes, String historico, String notaEntrevista2,
-			String notaLattes2, String notaFinal2, String status) {
-		this.processoSeletivo.setCurso(processoSeletivo);
+	public Candidato(String login, String senha, String nome, String cpf, String telefone, String lattes, String historico, String notaEntrevista2,
+			String notaLattes2, String notaFinal2, String status, String dataEntrevista) {
+		this.login = login;
+		this.senha = senha;
 		this.nome = nome;
 		this.telefone = telefone;
 		this.cpf = cpf;
@@ -33,10 +34,18 @@ public class Candidato {
 		this.notaLattes = notaLattes2;
 		this.notaFinal = notaFinal2;
 		this.status = status;
+		this.dataEntrevista = dataEntrevista;
 	}
-
+	
 	public Candidato() {
 		processoSeletivo = new ProcessoSeletivo();
+		this.lattes = "semlattes";
+		this.historico = "semhistorico";
+		this.notaEntrevista = "ne-1";
+		this.notaLattes = "nl-1";
+		this.notaFinal = "nf-1";
+		this.status = "semstatus";
+		this.dataEntrevista = "semdata";
 	}
 	
 	public Candidato getProximo() {

@@ -1,7 +1,10 @@
 package control;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -9,6 +12,7 @@ import javax.swing.JOptionPane;
 
 import entities.Candidato;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
@@ -63,33 +67,36 @@ public class InscricaoProcessoController {
 			break;
 							
 			}
+		}
 			
-		verificacao = scan.nextLine();
+//		verificacao = scan.nextLine();
 			
 		}
 		
-		BufferedWriter gravar = new BufferedWriter(new FileWriter(dir + "//Cadastros1.txt", true));
+//		BufferedWriter gravar = new BufferedWriter(new FileWriter(dir + "//Cadastros1.txt", true));
+//		
+////		
+//		Scanner scan1 = new Scanner(new File(dir + "//Cadastros1.txt"));
+//		String verificacao1 = scan1.nextLine();
+//		
+////		scan1.nextLine();
+////		scan1.nextLine();
+////		scan1.nextLine();
+////		scan1.nextLine();
+////		scan1.nextLine();
+////		scan1.nextLine();
+////		gravar.write(Lattes);
+////		//gravar.write(Historico);
+////		gravar.close();
 		
 		
-		Scanner scan1 = new Scanner(new File(dir + "//Cadastros1.txt"));
-		String verificacao1 = scan1.nextLine();
-		
-		scan1.nextLine();
-		scan1.nextLine();
-		scan1.nextLine();
-		scan1.nextLine();
-		scan1.nextLine();
-		scan1.nextLine();
-		gravar.write(Lattes);
-		//gravar.write(Historico);
-		gravar.close();
 		
 		
-		
-	}
-
 
 	
+
+
+
 private boolean confereInformacoes(String lattes, Pattern patern, Matcher match) {
 		// TODO Auto-generated method stub
 		return true;

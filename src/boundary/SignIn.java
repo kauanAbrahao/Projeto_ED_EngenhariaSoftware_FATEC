@@ -4,6 +4,8 @@ import java.io.IOException;
 
 import javax.swing.JOptionPane;
 
+import entities.Candidato;
+
 public class SignIn {
 	public void interfaceLogin() throws IOException {
 	JOptionPane.showMessageDialog(null, "== Você está no SysGETI - Perfil Aluno ==");
@@ -15,14 +17,14 @@ public class SignIn {
 	"3 - Voltar"));
 		
 		switch(opc_login) {
-		case 1: 
+		case 1:
+		Candidato candidato = new Candidato();
 		Login login = new Login();
-		String cpfValidador = login.acessarSistema();
+		candidato = login.acessarSistema(candidato);
 		
-		if(cpfValidador!=null) {
-			System.out.println("CPF: " + cpfValidador);
+		if(candidato != null) {
 			TelaInicialCandidato tela = new TelaInicialCandidato();
-			tela.telaInicial(cpfValidador);
+			tela.telaInicial(candidato);
 			opc_login = 9;
 		}
 		
