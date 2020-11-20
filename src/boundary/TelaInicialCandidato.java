@@ -7,7 +7,6 @@ import javax.swing.JOptionPane;
 import control.InscricaoProcessoController;
 import control.VerificaProcessoController;
 import entities.Candidato;
-import entities.ListaCandidatos;
 
 public class TelaInicialCandidato {
 		
