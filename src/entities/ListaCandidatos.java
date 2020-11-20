@@ -23,23 +23,23 @@ public class ListaCandidatos {
 //	----------------------------------------------------------------------
 	
  
-	public void inserirInicio(String nome, String telefone, String cpf) {
-		Candidato novocandidato = new Candidato();
-		
-		novocandidato.setNome(nome);
-		
-		novocandidato.anterior = null;
-		novocandidato.setProximo(inicio);
-		
-		if (inicio != null) {
-			inicio.setAnterior(novocandidato);
-		}
-		inicio = novocandidato;
-		if (isEmpty()) {
-			fim = inicio;
-		}
-		tamanho++;
-	}
+//	public void inserirInicio(String nome, String telefone, String cpf) {
+//		Candidato novocandidato = new Candidato();
+//		
+//		novocandidato.setNome(nome);
+//		
+//		novocandidato.anterior = null;
+//		novocandidato.setProximo(inicio);
+//		
+//		if (inicio != null) {
+//			inicio.setAnterior(novocandidato);
+//		}
+//		inicio = novocandidato;
+//		if (isEmpty()) {
+//			fim = inicio;
+//		}
+//		tamanho++;
+//	}
 	
 //	--------------------------------------------------------------------
 	
@@ -78,24 +78,24 @@ public class ListaCandidatos {
 	}
 	
 //	----------------------------------------------------------------------
-	public String removerFim() {
-		if (isEmpty()) {
-			return "Lista vazia, não há elementos para serem retirados";
-		}
-		else {
-			String out = fim.getNome();
-			fim = fim.getAnterior();
-			if (fim != null) {
-				fim.setProximo(null);
-			}
-			else {
-				inicio = null;
-			}
-			tamanho--;
-			return "removido: " + out; 
-		}
-		
-	}
+//	public String removerFim() {
+//		if (isEmpty()) {
+//			return "Lista vazia, não há elementos para serem retirados";
+//		}
+//		else {
+//			String out = fim.getNome();
+//			fim = fim.getAnterior();
+//			if (fim != null) {
+//				fim.setProximo(null);
+//			}
+//			else {
+//				inicio = null;
+//			}
+//			tamanho--;
+//			return "removido: " + out; 
+//		}
+//		
+//	}
 	
 //	-------------------------------------------------------------------
 //	public void inserirPosicao(String nome, String curso, int id, int pos) { //BUGADO - POINTERS NÃO ESTÃO CERTOS!!! ~ Arrumado
@@ -143,7 +143,7 @@ public class ListaCandidatos {
 		String r = "";
 		Candidato aux = inicio;
 		while (aux != null){
-			r = r + "\n" + "Nome: " + aux.getNome();
+			r = r + "\n" + "Nome: " + aux.getNome().toUpperCase();
 			aux = aux.getProximo();
 		}
 		return r;
@@ -172,5 +172,42 @@ public class ListaCandidatos {
 	}
 	
 //	---------------------------------------------------------------------
-
+	public void mostraListaOrdanadaPorNome() {
+		QuickSort quicksort = new QuickSort();
+		//Transforma a lista em vetor para ordenar.
+		
+		Candidato vet[] = new Candidato[this.tamanho];
+		vet = transformaListaEmVetor(vet);
+		
+		//Chama o QuickSort
+		vet = quicksort.quickSort(vet, 0, vet.length-1);
+		
+		//Transforma o vetor ordenado em Lista Encadeada novamente
+		inicio = null;
+		fim = null;
+		this.tamanho=0;
+		Candidato aux;
+		
+		for (int i = 0; i < vet.length; i++) {
+			aux = vet[i];
+			inserirFim(aux);
+		}
+		System.out.println(mostraLista());
+	}
+	
+//	-----------------------------------------------------------------
+	
+	private Candidato[] transformaListaEmVetor(Candidato[] vet) {
+		Candidato aux = inicio;
+		int i = 0;
+		
+		while(aux!=null) {
+			vet[i] = aux;
+			i++;
+			aux = aux.getProximo();
+		}
+		
+		return vet;
+	}
+	
 }

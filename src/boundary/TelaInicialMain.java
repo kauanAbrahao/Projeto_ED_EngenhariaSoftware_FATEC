@@ -14,10 +14,17 @@ public class TelaInicialMain {
 					"\n" + "2 - Plataforma CRA" + "\n" + "3 - Plataforma CPS " + "\n" + "\n" + "9 - Finalizar"));
 			
 			switch(opc) {
-			case 1: SignIn signin = new SignIn();
+			
+			case 1: 
+			SignIn signin = new SignIn(); //Plataforma Aluno~Candidato
 			signin.interfaceLogin();
 			break;
-			case 2: //;
+			
+			case 2:
+			TelaInicialCRA cra = new TelaInicialCRA();
+			cra.telaInicial();
+			break;
+				
 			case 3: //;
 			case 9: JOptionPane.showMessageDialog(null, "Finalizado");
 			break;

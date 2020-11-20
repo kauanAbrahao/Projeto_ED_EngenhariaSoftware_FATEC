@@ -15,6 +15,7 @@ public class TelaInicialCandidato {
 		
 		VerificaProcessoController processo = new VerificaProcessoController();
 		InscricaoProcessoController inscreve = new InscricaoProcessoController();
+		JOptionPane.showMessageDialog(null, "SEJA BEM-VINDO(A), " + candidato.getNome().toUpperCase() + "!");
 		
 		int opc = -1;
 		

@@ -1,1 +1,2 @@
 admin,admin,kauan abrahao,46598712345,2415420241,lattes.com/kauan,anexado historico,nl-1,ne-1,nf-1,naoanalisado,semdata
+usuario,senha,guilherme sardinha,00123456789,123456,lattes.com/sardinha,anexado,nl-1,ne-1,nf-1,naoanalisado,semdata
