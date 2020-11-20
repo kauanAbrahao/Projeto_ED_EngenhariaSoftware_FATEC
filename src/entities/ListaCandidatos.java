@@ -6,6 +6,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import javax.swing.JOptionPane;
+
 public class ListaCandidatos {
 	Candidato inicio;
 	Candidato fim;
@@ -192,7 +194,7 @@ public class ListaCandidatos {
 			aux = vet[i];
 			inserirFim(aux);
 		}
-		System.out.println(mostraLista());
+		JOptionPane.showMessageDialog(null, mostraLista());;
 	}
 	
 //	-----------------------------------------------------------------
