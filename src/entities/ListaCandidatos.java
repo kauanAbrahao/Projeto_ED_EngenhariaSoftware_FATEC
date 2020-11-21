@@ -8,6 +8,13 @@ import java.io.InputStreamReader;
 
 import javax.swing.JOptionPane;
 
+import control.AcessoLattesController;
+import control.AgendaEntrevistaController;
+import control.NotaCurriculoController;
+import control.NotaEntrevistaController;
+import control.NotaFinalController;
+import control.RetornaNotaFinalController;
+
 public class ListaCandidatos {
 	Candidato inicio;
 	Candidato fim;
@@ -166,7 +173,7 @@ public class ListaCandidatos {
 		while(linha!=null) {
 			String[] parte = linha.split("\\,");
 			Candidato novocandidato = new Candidato(parte[0], parte[1], parte[2], parte[3], parte[4], parte[5], parte[6], parte[7],
-					parte[8], parte[9], parte[10], parte[11]);
+					parte[8], parte[9], parte[10], parte[11], parte[12]);
 			inserirFim(novocandidato);
 			linha = buffer.readLine();
 		}
@@ -215,5 +222,134 @@ public class ListaCandidatos {
 	public Candidato getInicio() {
 		return this.inicio;
 	}
+//	---------------------------------------------------------------------
+	//Busca o Cpf do candidato e acessa seu curriculo Lattes
+	public Candidato buscaCandidatoPorCPF(String CPF) throws IOException {
+		Candidato aux = inicio;
+		AcessoLattesController processo = new AcessoLattesController();
+		while(aux != null) {
+			if (
+				(aux.getCpf().contains(CPF))) {
+				processo.verificaLattes(aux);
+				return aux;
+				
+			}
+			aux = aux.getProximo();
+		}
+		return null;
+		
+		
+		
+		
+		
+	}
+
+//	---------------------------------------------------------------------
+	//Busca por Cpf e Atribui uma nota ao Lattes
+	public Candidato buscaCandidatoPorCPFCurriculo(String CPF) throws IOException {
+		Candidato aux = inicio;
+		NotaCurriculoController processo = new NotaCurriculoController();
+		while(aux != null) {
+			if (
+				(aux.getCpf().contains(CPF))) {
+				processo.NotaLattes(aux);
+				return aux;
+				
+			}
+			aux = aux.getProximo();
+		}
+		return null;
+		
+		
+		
+		
+		
+	}
+//	---------------------------------------------------------------------
+	//Busca por Cpf e Atribui uma nota à entrevista
+	public Candidato buscaCandidatoPorCPFEntrevista(String CPF) throws IOException {
+		Candidato aux = inicio;
+		NotaEntrevistaController processo = new NotaEntrevistaController();
+		while(aux != null) {
+			if (
+				(aux.getCpf().contains(CPF))) {
+				processo.NotaEntrevista(aux);
+				return aux;
+				
+			}
+			aux = aux.getProximo();
+		}
+		return null;
+		
+		
+		
+		
+		
+	}
+//	---------------------------------------------------------------------
+	//Busca por Cpf e agenda entrevista
+	public Candidato buscaCandidatoPorCPFAgendaEntrevista(String CPF) throws IOException {
+		Candidato aux = inicio;
+		AgendaEntrevistaController processo = new AgendaEntrevistaController();
+		while(aux != null) {
+			if (
+				(aux.getCpf().contains(CPF))) {
+				processo.AgendaEntrevista(aux);
+				return aux;
+				
+			}
+			aux = aux.getProximo();
+		}
+		return null;
+		
+		
+		
+		
+		
+	}
 	
+//	---------------------------------------------------------------------
+	//Busca por Cpf e define a nota final
+	public Candidato buscaCandidatoPorCPFNotaFinal(String CPF) throws IOException {
+		Candidato aux = inicio;
+		NotaFinalController processo = new NotaFinalController();
+		while(aux != null) {
+			if (
+				(aux.getCpf().contains(CPF))) {
+				processo.NotaFinal(aux);
+				return aux;
+				
+			}
+			aux = aux.getProximo();
+		}
+		return null;
+		
+		
+		
+		
+		
+	}
+//	---------------------------------------------------------------------
+	//Busca por Cpf e define a nota final
+		public Candidato buscaCandidatoPorCPFRetornaNotaFinal(String CPF) throws IOException {
+			Candidato aux = inicio;
+			RetornaNotaFinalController processo = new RetornaNotaFinalController();
+			while(aux != null) {
+				if (
+					(aux.getCpf().contains(CPF))) {
+					processo.RetornaNotaFinal(aux);
+					return aux;
+					
+				}
+				aux = aux.getProximo();
+			}
+			return null;
+			
+			
+			
+			
+			
+		}
 }
+
+

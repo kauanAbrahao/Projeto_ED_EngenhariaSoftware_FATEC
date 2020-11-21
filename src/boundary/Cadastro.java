@@ -133,7 +133,7 @@ public class Cadastro {
 		buffer.append(candidato.getLogin() + "," + candidato.getSenha() + "," + candidato.getNome() + "," + candidato.getCpf()
 		+ "," + candidato.getTelefone() + "," + candidato.getLattes() + "," + candidato.getHistorico() + "," + candidato.getNotaLattes()
 		+ "," + candidato.getNotaEntrevista() + "," + candidato.getNotaFinal() + "," + candidato.getStatus() + "," + 
-		candidato.getDataEntrevista() + "\n");
+		candidato.getDataEntrevista() + "," + candidato.getdivulgaNotaFinal() +"\n");
 		
 		return buffer.toString();
 	}

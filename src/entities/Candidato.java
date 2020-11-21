@@ -17,12 +17,12 @@ public class Candidato {
 	private String notaFinal;
 	private String status;
 	private String dataEntrevista;
+	private String divulgaNotaFinal;
 	
 	
 	
-	
-	public Candidato(String login, String senha, String nome, String cpf, String telefone, String lattes, String historico, String notaEntrevista2,
-			String notaLattes2, String notaFinal2, String status, String dataEntrevista) {
+	public Candidato(String login, String senha, String nome, String cpf, String telefone, String lattes, String historico,
+			String notaLattes2, String notaEntrevista2, String notaFinal2, String status, String dataEntrevista, String divulgaNotaFinal) {
 		this.login = login;
 		this.senha = senha;
 		this.nome = nome;
@@ -30,11 +30,12 @@ public class Candidato {
 		this.cpf = cpf;
 		this.lattes = lattes;
 		this.historico = historico;
-		this.notaEntrevista = notaEntrevista2;
 		this.notaLattes = notaLattes2;
+		this.notaEntrevista = notaEntrevista2;
 		this.notaFinal = notaFinal2;
 		this.status = status;
 		this.dataEntrevista = dataEntrevista;
+		this.divulgaNotaFinal = divulgaNotaFinal;
 	}
 	
 	public Candidato() {
@@ -46,6 +47,7 @@ public class Candidato {
 		this.notaFinal = "nf-1";
 		this.status = "semstatus";
 		this.dataEntrevista = "semdata";
+		this.divulgaNotaFinal = "N";
 	}
 	
 	public Candidato getProximo() {
@@ -155,8 +157,15 @@ public class Candidato {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	
+	public String getdivulgaNotaFinal() {
+		return divulgaNotaFinal;
+	}
+
+	public void setdivulgaNotaFinal(String divulgaNotaFinal) {
+		this.divulgaNotaFinal = divulgaNotaFinal;
+	}
 	
 	
 
 }
+

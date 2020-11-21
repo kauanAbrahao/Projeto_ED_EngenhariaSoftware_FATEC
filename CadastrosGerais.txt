@@ -1,2 +1,3 @@
-kauan,123,kauan abrahao,12345678945,123,lattes.com/kauanabrahao,anexado com sucesso,nl-1,ne-1,nf-1,naoanalisado,semdata
-guilherme sardinha,123,guilherme sardinha,12345678912,123,lattes.com/guilhermesardinha,anexado com sucesso,nl-1,ne-1,nf-1,naoanalisado,semdata
+aaa,aaa,aaa,11111111111,1234567,semlattes,semhistorico,nl-1,ne-1,nf-1,semstatus,20-11,N
+bbb,bbb,bbbb,22222222222,1213245,semlattes,semhistorico,9,ne-1,nf-1,semstatus,semdata,N
+ccc,ccc,cccc,33333333333,1345656,semlattes,semhistorico,nl-1,ne-1,nf-1,semstatus,semdata,S
