@@ -18,7 +18,7 @@ public class QuickSort {
 		Candidato aux;
 		int i = l-1;
 		for (int j = l; j<r; j++) {
-			if(vet[j].getNome().compareTo(pivo) < 0) {
+			if(vet[j].getNome().toUpperCase().compareTo(pivo.toUpperCase()) < 0) {
 				i++;
 				aux = vet[j];
 				vet[j] = vet[i];

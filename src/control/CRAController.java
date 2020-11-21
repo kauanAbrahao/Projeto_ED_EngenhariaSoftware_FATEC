@@ -57,7 +57,9 @@ public class CRAController {
 				break;
 				
 				}
-			} 
+			} else {
+				JOptionPane.showMessageDialog(null, "Candidato " + candidato.getNome().toUpperCase() + " já foi avaliado");
+			}
 			candidato = candidato.getProximo();
 		}
 		

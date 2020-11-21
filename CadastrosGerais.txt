@@ -1,3 +1,4 @@
 kauan,123,kauan abrahao,43219875178,12345678,lattes.com/kauan,inserido,nl-1,ne-1,nf-1,deferido,semdata
 guilherme,123,guilherme sardinha,12345678999,123456,lattes.com/sardinhaguilherme,inserido,nl-1,ne-1,nf-1,deferido,semdata
 felipe,123,felipe sardinha,00123456789,123213,lattes.com/felipesardinha,inserido,nl-1,ne-1,nf-1,deferido,semdata
+alunoteste,123,Luiz akgumacoisa,12345678999,123456,lattes.com/alunoteste,anexado,nl-1,ne-1,nf-1,deferido,semdata
