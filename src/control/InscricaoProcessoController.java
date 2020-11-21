@@ -37,24 +37,14 @@ public class InscricaoProcessoController {
 		String path = System.getProperty("user.dir");
 		String nome = "CadastrosGerais.txt";
 		File arq = new File(path, nome);
-		String conteudoAntigo = readTxt(path, nome);
+		String conteudo = readTxt(path, nome, candidato);
 		BufferedReader reader = null;
 		FileWriter writer = null;
-		StringBuffer buffer = new StringBuffer();
 		
 		try {
 			reader = new BufferedReader(new FileReader(arq));
-			String linha = reader.readLine();
-			while(linha!=null) {
-				buffer.append(conteudoAntigo + linha + System.lineSeparator());
-				linha = reader.readLine();
-			}
-			
-			String conteudonovo = conteudoAntigo.replaceAll("semlattes", candidato.getLattes());
-			conteudonovo = conteudonovo.replaceAll("semhistorico", candidato.getHistorico());
-			conteudonovo = conteudonovo.replaceAll("semstatus", candidato.getStatus());
 			writer = new FileWriter(arq);
-			writer.write(conteudonovo);
+			writer.write(conteudo);
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
@@ -65,7 +55,7 @@ public class InscricaoProcessoController {
 
 
 
-	private String readTxt(String path, String nome) throws IOException {
+	private String readTxt(String path, String nome, Candidato candidato) throws IOException {
 		File arq = new File(path, nome);
 		StringBuffer conteudo = new StringBuffer();
 		if(arq.exists() && arq.isFile()) {
@@ -75,6 +65,11 @@ public class InscricaoProcessoController {
 			
 			String linha = buffer.readLine();
 			while(linha != null) { // procurando EOF (End of File)
+				if(linha.contains(candidato.getCpf())) {
+					linha = linha.replaceAll("semlattes", candidato.getLattes());
+					linha = linha.replaceAll("semhistorico", candidato.getHistorico());
+					linha = linha.replaceAll("semstatus", candidato.getStatus());
+				}
 				conteudo.append(linha + System.lineSeparator());
 				linha = buffer.readLine();
 			}
