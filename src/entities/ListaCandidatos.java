@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 public class ListaCandidatos {
 	Candidato inicio;
 	Candidato fim;
+	Candidato paraRetorno;
 	int tamanho;
 	
 	public boolean isEmpty() {
@@ -25,31 +26,29 @@ public class ListaCandidatos {
 //	----------------------------------------------------------------------
 	
  
-//	public void inserirInicio(String nome, String telefone, String cpf) {
-//		Candidato novocandidato = new Candidato();
-//		
-//		novocandidato.setNome(nome);
-//		
-//		novocandidato.anterior = null;
-//		novocandidato.setProximo(inicio);
-//		
-//		if (inicio != null) {
-//			inicio.setAnterior(novocandidato);
-//		}
-//		inicio = novocandidato;
-//		if (isEmpty()) {
-//			fim = inicio;
-//		}
-//		tamanho++;
-//	}
+	public void inserirInicio(Candidato candidato) {
+		
+		
+		candidato.anterior = null;
+		candidato.setProximo(inicio);
+		
+		if (inicio != null) {
+			inicio.setAnterior(candidato);
+		}
+		inicio = candidato;
+		if (isEmpty()) {
+			fim = inicio;
+		}
+		tamanho++;
+	}
 	
 //	--------------------------------------------------------------------
 	
-	public String removerInicio() {
+	public Candidato removerInicio() {
 		if (isEmpty()) {
-			return "Lista vazia, não há elementos para serem retirados";
+			return null;
 		}
-		String out = inicio.getNome();
+		Candidato aux = inicio;
 		inicio = inicio.getProximo();
 		if (inicio != null) {
 			inicio.setAnterior(null);
@@ -58,7 +57,7 @@ public class ListaCandidatos {
 			fim = null;
 		}
 		tamanho--;
-		return "removido: " + out;
+		return aux;
 	}
 //	---------------------------------------------------------------------
 	
@@ -151,6 +150,7 @@ public class ListaCandidatos {
 		return r;
 	}
 	
+//	---------------------------------------------------------------------------
 //	-----------------------------------------------------------------------------
 	public void buscaCandidatosPersistidos() throws IOException {
 		
@@ -210,6 +210,10 @@ public class ListaCandidatos {
 		}
 		
 		return vet;
+	}
+	
+	public Candidato getInicio() {
+		return this.inicio;
 	}
 	
 }

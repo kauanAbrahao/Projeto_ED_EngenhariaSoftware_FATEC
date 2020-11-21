@@ -27,10 +27,10 @@ public class VerificaProcessoController {
 				if(parte[10].contentEquals("semstatus")) {
 					JOptionPane.showMessageDialog(null, "ATENÇÃO! Você ainda não está matriculado em nenhum Processo Seletivo!");
 				}
-				if(parte[10].contentEquals("inscricaoaprovada")) {
+				if(parte[10].contentEquals("deferido")) {
 					JOptionPane.showMessageDialog(null, "Sua inscrição foi deferida");
 				}
-				if(parte[10].contentEquals("inscricaoreprovada")) {
+				if(parte[10].contentEquals("indeferido")) {
 					JOptionPane.showMessageDialog(null, "Sua inscrição foi indeferida");
 				}
 				if(parte[10].contentEquals("naoanalisado")) {

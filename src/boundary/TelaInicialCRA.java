@@ -4,12 +4,13 @@ import java.io.IOException;
 
 import javax.swing.JOptionPane;
 
-import control.VisualizaListaDeCandidatosCRAController;
+import control.CRAController;
 
 public class TelaInicialCRA {
 	
 	public void telaInicial() throws IOException {
 		int opc = -1;
+		CRAController visualiza = new CRAController();
 		
 		while (opc!= 9) {
 			opc = Integer.parseInt(JOptionPane.showInputDialog("== OPÇÕES PARA O CRA ==" + "\n" + "1 - Ver lista de candidatos inscritos no Processo Seletivo" + 
@@ -17,11 +18,12 @@ public class TelaInicialCRA {
 			
 			switch(opc) {
 			case 1:
-			VisualizaListaDeCandidatosCRAController visualiza = new VisualizaListaDeCandidatosCRAController();
 			visualiza.visualizaCandidatos();
 			break;
 			
-			case 2: //;
+			case 2:
+			visualiza.visualizaDocumentos();	
+		
 			case 3: //;
 			case 9: JOptionPane.showMessageDialog(null, "Finalizado");
 			break;
