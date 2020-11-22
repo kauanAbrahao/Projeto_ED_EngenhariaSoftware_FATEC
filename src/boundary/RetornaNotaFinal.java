@@ -1,13 +1,9 @@
 package boundary;
 
-import java.io.IOException;
-import entities.Candidato;
-import entities.ListaCandidatos;
-import entities.Candidato;
-import entities.ListaCandidatos;
-import boundary.TelaInicialCPS;
-
 import javax.swing.JOptionPane;
+
+import entities.Candidato;
+import entities.ListaCandidatos;
 
 public class RetornaNotaFinal {
 	//Digite o CPF do Candidato

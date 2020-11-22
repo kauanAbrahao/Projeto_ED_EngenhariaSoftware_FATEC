@@ -18,7 +18,7 @@ public class CRAController {
 	public void visualizaCandidatos() throws IOException {
 		ListaCandidatos lista = new ListaCandidatos();
 		lista.buscaCandidatosPersistidos();
-		lista.mostraListaOrdanadaPorNome();
+		lista.mostraListaOrdanadaPorNome("apenas matriculados");
 		
 		
 	}
@@ -31,7 +31,7 @@ public class CRAController {
 		Candidato candidato = lista.getInicio();
 			
 		while(candidato != null) {
-			if(candidato.getStatus().contains("naoanalisado")) {	
+			if(candidato.getStatus().contains("naoanalisado") && !candidato.getStatus().contains("semstatus")) {	
 				int opc = Integer.parseInt(JOptionPane.showInputDialog("Candidato: " + candidato.getNome().toUpperCase() + "\nInscrição: " + candidato.getStatus().toUpperCase()
 						+ "\nLink para o Lattes: " + candidato.getLattes() + "\n" + "Histórico em anexo: " + candidato.getHistorico() +
 						"\n\n" + "Você deseja atribuir um status à inscrição do candidato agora?" + "\n" + "1- Sim" + "\n" + "2 - Não"));
@@ -58,14 +58,14 @@ public class CRAController {
 				
 				}
 			} else {
-				JOptionPane.showMessageDialog(null, "Candidato " + candidato.getNome().toUpperCase() + " já foi avaliado");
+					JOptionPane.showMessageDialog(null, "Candidato " + candidato.getNome().toUpperCase() + " já foi avaliado");
 			}
 			candidato = candidato.getProximo();
 		}
 		
 	}
 
-	private void atribuiStatus(Candidato candidato) {
+	private static void atribuiStatus(Candidato candidato) {
 		int status;
 		
 		status = Integer.parseInt(JOptionPane.showInputDialog(null, "1 - Deferido\n2 - Indeferido"));

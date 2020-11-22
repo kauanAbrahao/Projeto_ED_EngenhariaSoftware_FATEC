@@ -1,3 +1,3 @@
-aaa,aaa,aaa,11111111111,1234567,semlattes,semhistorico,nl-1,ne-1,nf-1,semstatus,20-11,N
-bbb,bbb,bbbb,22222222222,1213245,semlattes,semhistorico,9,ne-1,nf-1,semstatus,semdata,N
-ccc,ccc,cccc,33333333333,1345656,semlattes,semhistorico,nl-1,ne-1,nf-1,semstatus,semdata,S
+kauan,123,kauan abrahao,13246578944,123,www.lattes.com.br/kauanabrahao,anexado,nl-1,ne-1,nf-1,deferido,semdata,N
+gui,123,guilherme sardinha,00123456789,123,lattes/guilherme,anexado,10,8,9,indeferido,01.02.1996,Sim
+felipe,213,felipe sardinha,88123456789,123,lattes.com/felipe,anexado,nl-1,ne-1,nf-1,indeferido,semdata,N

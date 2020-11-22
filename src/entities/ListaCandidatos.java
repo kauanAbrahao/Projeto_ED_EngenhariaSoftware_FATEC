@@ -147,14 +147,27 @@ public class ListaCandidatos {
 		
 	
 //	-----------------------------------------------------------
-	public String mostraLista() {
+	public String mostraLista(String verificacao) {
 		String r = "";
 		Candidato aux = inicio;
-		while (aux != null){
-			r = r + "\n" + "Nome: " + aux.getNome().toUpperCase();
-			aux = aux.getProximo();
+		
+		if (verificacao.contains("apenas matriculados")) {
+			while (aux != null){
+				if(!aux.getStatus().contains("semstatus")) {
+					r = r + "\n" + "Nome: " + aux.getNome().toUpperCase() + ", CPF: " + aux.getCpf().toUpperCase();
+				}
+				aux = aux.getProximo();
+			}
+			return r;
+			
+		} else {
+			while (aux != null){
+				r = r + "\n" + "Nome: " + aux.getNome().toUpperCase() + ", CPF: " + aux.getCpf().toUpperCase();
+				aux = aux.getProximo();
+			}
+			return r;
+			
 		}
-		return r;
 	}
 	
 //	---------------------------------------------------------------------------
@@ -181,7 +194,7 @@ public class ListaCandidatos {
 	}
 	
 //	---------------------------------------------------------------------
-	public void mostraListaOrdanadaPorNome() {
+	public void mostraListaOrdanadaPorNome(String verificacao) {
 		QuickSort quicksort = new QuickSort();
 		//Transforma a lista em vetor para ordenar.
 		
@@ -201,7 +214,7 @@ public class ListaCandidatos {
 			aux = vet[i];
 			inserirFim(aux);
 		}
-		JOptionPane.showMessageDialog(null, mostraLista());;
+		JOptionPane.showMessageDialog(null, mostraLista(verificacao));;
 	}
 	
 //	-----------------------------------------------------------------
@@ -236,7 +249,7 @@ public class ListaCandidatos {
 			}
 			aux = aux.getProximo();
 		}
-		return null;
+		return aux;
 		
 		
 		

@@ -1,9 +1,8 @@
 package boundary;
 
-import java.io.IOException;
-import entities.Candidato;
 import javax.swing.JOptionPane;
-import boundary.TelaInicialCPS;
+
+import entities.Candidato;
 
 
 public class TelaInicialMain {
@@ -25,9 +24,9 @@ public class TelaInicialMain {
 				cra.telaInicial();
 				break;
 				
-			case 3: Candidato candidato = new Candidato();
+			case 3: 
 			TelaInicialCPS VerLattes = new TelaInicialCPS();
-			candidato = VerLattes.telaInicio(candidato);
+			VerLattes.telaInicio();
 			break;
 			
 			case 9: JOptionPane.showMessageDialog(null, "Finalizado");

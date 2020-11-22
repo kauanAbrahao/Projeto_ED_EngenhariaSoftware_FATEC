@@ -1,13 +1,9 @@
 package boundary;
 
-import java.io.IOException;
-import entities.Candidato;
-import entities.ListaCandidatos;
-import entities.Candidato;
-import entities.ListaCandidatos;
-import boundary.TelaInicialCPS;
-
 import javax.swing.JOptionPane;
+
+import entities.Candidato;
+import entities.ListaCandidatos;
 
 public class NotaEntrevista {
 	//Digite o CPF do Candidato
@@ -18,7 +14,7 @@ public class NotaEntrevista {
 		
 		CPF = JOptionPane.showInputDialog("Digite o CPF do candidato ");
 		
-		candidato = lista.buscaCandidatoPorCPFEntrevista(CPF);
+		candidato = lista.buscaCandidatoPorCPF(CPF);
 		
 	}
 }

@@ -1,24 +1,18 @@
 package boundary;
 
-import java.io.IOException;
-
 import javax.swing.JOptionPane;
 
-import control.InscricaoProcessoController;
-import control.VerificaProcessoController;
 import entities.Candidato;
-import entities.ListaCandidatos;
-import control.AcessoLattesController;
-import boundary.AcessoLattes;
-import boundary.NotaCurriculo;
 
 
 
 
 public class TelaInicialCPS {
 		
-	public Candidato telaInicio(Candidato candidato) throws Exception {
+	public Candidato telaInicio() throws Exception {
 		
+		
+		Candidato candidato = new Candidato();
 		
 		NotaEntrevista NEntrevista = new NotaEntrevista();
 		
