@@ -11,28 +11,14 @@ import javax.swing.JOptionPane;
 
 import entities.Candidato;
 
-public class RetornaNotaFinalController {
+public class RetornaAgendaEntrevistaController {
 	
-	public void RetornaNotaFinal(Candidato aux) throws IOException {
+	public void RetornaAgenda(Candidato candidato) throws IOException {
 		//getNotaEntrevista está retornando a nota do lattes
-		if(aux.getdivulgaNotaFinal().contains("N")) {
-		
-			int opc = -1;
-			while (opc!= 2) {
-				opc = Integer.parseInt(JOptionPane.showInputDialog("DESEJA LIBERAR A NOTA AO CANDIDATO?" + "\n" + "1 - Sim" + "\n" + "2 - Não"));
-			
-				switch(opc) {
-				case 1:	String RetornaNotaFinal = ("S");
-					aux.setdivulgaNotaFinal(RetornaNotaFinal);
-					alteraTxtComDadosNovos(aux);
-					opc = 2;
-					break;
-				case 2: ;
-				break;
-				}
-			}
+		if(!candidato.getDataEntrevista().contains("semdata")) {
+			JOptionPane.showMessageDialog(null, "A data para sua entrevista é: " + candidato.getDataEntrevista());
 		} else {
-			JOptionPane.showMessageDialog(null, "A nota final já foi divulgada ");
+			JOptionPane.showMessageDialog(null, "A data para sua entrevista ainda não foi definida ");
 		}
 	}
 	

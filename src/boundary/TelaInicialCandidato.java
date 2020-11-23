@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.swing.JOptionPane;
 
 import control.InscricaoProcessoController;
+import control.RetornaAgendaEntrevistaController;
 import control.VerificaNotaFinalController;
 import control.VerificaProcessoController;
 import entities.Candidato;
@@ -13,6 +14,7 @@ public class TelaInicialCandidato {
 		
 	public void telaInicial(Candidato candidato) throws IOException {
 		
+		RetornaAgendaEntrevistaController mostra= new RetornaAgendaEntrevistaController();
 		VerificaNotaFinalController Ver = new VerificaNotaFinalController();
 		VerificaProcessoController processo = new VerificaProcessoController();
 		InscricaoProcessoController inscreve = new InscricaoProcessoController();
@@ -22,7 +24,7 @@ public class TelaInicialCandidato {
 		
 		while(opc != 9) {
 			opc = Integer.parseInt(JOptionPane.showInputDialog("== OPÇÕES PARA O CANDIDATO ==" + "\n" + "1 - Inscrição em Processo Seletivo" + "\n" + 
-			"2 - Verificar Situação no Processo Seletivo" + "\n"+ "3 - Verificar Nota Final" + "\n" + "9 - Retornar"));
+			"2 - Verificar Situação no Processo Seletivo" + "\n"+ "3 - Verificar data entrevista"+ "\n"+ "4 - Verificar Nota Final" + "\n" + "9 - Retornar"));
 			
 			switch(opc) {
 				case 1: inscreve.inscreveProcesso(candidato);
@@ -31,7 +33,10 @@ public class TelaInicialCandidato {
 				case 2: processo.verificaProcesso(candidato);
 				break;
 				
-				case 3: Ver.verificaNotaProcesso(candidato);
+				case 3: mostra.RetornaAgenda(candidato);
+				break;
+				
+				case 4: Ver.verificaNotaProcesso(candidato);
 				break;
 				
 				case 9:

@@ -27,7 +27,7 @@ public class TelaInicialCPS {
 		
 		while(opc != 9) {
 			opc = Integer.parseInt(JOptionPane.showInputDialog("== OPÇÕES PARA O CPS ==" + "\n" + "1 - Ver Lattes" + "\n" + 
-			"2 - Atribuir nota ao Lattes" + "\n" + "3 - Agendar entrevista" + "\n" +  "4 - Atribuir nota à entrevista" + "\n" + "5 - Atribuir nota final" + "\n" +  "6 - Retornar nota final" +  "\n" + "9 - Retornar"));
+			"2 - Atribuir nota ao Lattes" + "\n" + "3 - Agendar entrevista" + "\n" +  "4 - Atribuir nota à entrevista" + "\n" +  "5 - Retornar nota final" +  "\n" + "9 - Retornar"));
 			
 			switch(opc) {
 				case 1: AcessoLattesController VerLattes = new AcessoLattesController();
@@ -46,11 +46,7 @@ public class TelaInicialCPS {
 				NEntrevista.NotaEntrevista(aux);
 				break;
 				
-				case 5: NotaFinalController NotaFinal = new NotaFinalController();
-				NotaFinal.NotaFinal(aux);
-				break;
-				
-				case 6: RetornaNotaFinalController RetornaNotaFinal = new RetornaNotaFinalController();
+				case 5: RetornaNotaFinalController RetornaNotaFinal = new RetornaNotaFinalController();
 				RetornaNotaFinal.RetornaNotaFinal(aux);
 				break;
 				

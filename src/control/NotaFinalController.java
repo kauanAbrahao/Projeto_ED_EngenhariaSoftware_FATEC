@@ -17,16 +17,16 @@ public class NotaFinalController {
 		//getNotaEntrevista está retornando a nota do lattes
 		
 		String N = aux.getNotaFinal();
-		if(aux.getNotaFinal().contains("nf-1")) {
-			
-			String NFinal = JOptionPane.showInputDialog("Defina a nota final");
+		if(aux.getNotaFinal().contains("nf-1") && !aux.getNotaLattes().contains("nl-1") && !aux.getNotaEntrevista().contains("ne-1")) {
+			double N1 = Double.parseDouble(aux.getNotaLattes());
+			double N2 = Double.parseDouble(aux.getNotaEntrevista());
+			double M;
+			M = (N1+N2)/2;
+			String NFinal = String.valueOf(M);
 			
 			aux.setNotaFinal(NFinal);
 			
 			alteraTxtComDadosNovos(aux);
-		
-		} else {
-			JOptionPane.showMessageDialog(null, "A nota já foi definida " + N);
 		}
 	}
 	

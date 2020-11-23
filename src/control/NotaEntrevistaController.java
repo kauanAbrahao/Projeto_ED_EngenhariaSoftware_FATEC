@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 import javax.swing.JOptionPane;
-
+import control.NotaFinalController;
 import entities.Candidato;
 
 public class NotaEntrevistaController {
@@ -24,10 +24,15 @@ public class NotaEntrevistaController {
 			aux.setNotaEntrevista(NEntrevista);
 			
 			alteraTxtComDadosNovos(aux);
+			
 		
 		} else {
 			JOptionPane.showMessageDialog(null, "Já foi atribuida nota à entrevista " + N);
 		}
+		
+		NotaFinalController NotaFinal = new NotaFinalController();
+		NotaFinal.NotaFinal(aux);
+		
 	}
 	
 	

@@ -24,10 +24,15 @@ public class NotaCurriculoController {
 			aux.setNotaLattes(Nlattes);
 			
 			alteraTxtComDadosNovos(aux);
+			
+			
 		
 		} else {
 			JOptionPane.showMessageDialog(null, "Já foi atribuida nota ao Lattes " + N);
 		}
+		
+		NotaFinalController NotaFinal = new NotaFinalController();
+		NotaFinal.NotaFinal(aux);
 	}
 	
 	
