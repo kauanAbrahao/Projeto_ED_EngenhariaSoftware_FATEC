@@ -1,3 +1,1 @@
-kauan,123,kauan abrahao,13246578944,123,www.lattes.com.br/kauanabrahao,anexado,nl-1,ne-1,nf-1,deferido,semdata,N
-gui,123,guilherme sardinha,00123456789,123,lattes/guilherme,anexado,10,8,9,indeferido,01.02.1996,Sim
-felipe,213,felipe sardinha,88123456789,123,lattes.com/felipe,anexado,nl-1,ne-1,nf-1,indeferido,semdata,N
+gui,123,guilherme,11111111111,1234567,guilherme.lattes,anexa,6,8,7,deferido,20-11,S

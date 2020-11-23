@@ -2,6 +2,13 @@ package boundary;
 
 import javax.swing.JOptionPane;
 
+import control.AcessoLattesController;
+import control.AgendaEntrevistaController;
+import control.DefineCandidatoCPS;
+import control.NotaCurriculoController;
+import control.NotaEntrevistaController;
+import control.NotaFinalController;
+import control.RetornaNotaFinalController;
 import entities.Candidato;
 
 
@@ -9,47 +16,44 @@ import entities.Candidato;
 
 public class TelaInicialCPS {
 		
-	public Candidato telaInicio() throws Exception {
+	public Candidato telaInicio(Candidato aux) throws Exception {
 		
 		
 		Candidato candidato = new Candidato();
 		
-		NotaEntrevista NEntrevista = new NotaEntrevista();
 		
-		AcessoLattes  VerLattes = new AcessoLattes();
-		
-		NotaCurriculo NCurriculo = new NotaCurriculo();
-		
-		AgendaEntrevista AgendaEntrevista = new AgendaEntrevista();
-		
-		NotaFinal NotaFinal = new NotaFinal();
-		
-		RetornaNotaFinal RetornaNotaFinal = new RetornaNotaFinal();
 		
 		int opc = -1;
 		
 		while(opc != 9) {
 			opc = Integer.parseInt(JOptionPane.showInputDialog("== OPÇÕES PARA O CPS ==" + "\n" + "1 - Ver Lattes" + "\n" + 
-			"2 - Atribuir nota ao Lattes" + "\n" + "3 - Agendar entrevista" + "\n" +  "4 - Atribuir nota à entrevista" + "\n" + "5 - Atribuir nota final" + "\n" +  "6 - Retornar nota final" + "\n" + "9 - Retornar"));
+			"2 - Atribuir nota ao Lattes" + "\n" + "3 - Agendar entrevista" + "\n" +  "4 - Atribuir nota à entrevista" + "\n" + "5 - Atribuir nota final" + "\n" +  "6 - Retornar nota final" +  "\n" + "9 - Retornar"));
 			
 			switch(opc) {
-				case 1: VerLattes.verificaLattes(candidato);
+				case 1: AcessoLattesController VerLattes = new AcessoLattesController();
+				VerLattes.verificaLattes(aux);
 				break;
 					
-				case 2: ((NotaCurriculo) NCurriculo).NCurriculo(candidato);
+				case 2: NotaCurriculoController NotaLattes = new NotaCurriculoController();
+				NotaLattes.NotaLattes(aux);
 				break;
 				
-				case 3: ((AgendaEntrevista) AgendaEntrevista).AgendaEntrevista(candidato);
+				case 3: AgendaEntrevistaController AgendaEntrevista = new AgendaEntrevistaController();
+				AgendaEntrevista.AgendaEntrevista(aux);
 				break;
 				
-				case 4: ((NotaEntrevista) NEntrevista).NEntrevista(candidato);
+				case 4: NotaEntrevistaController NEntrevista = new NotaEntrevistaController();
+				NEntrevista.NotaEntrevista(aux);
 				break;
 				
-				case 5: ((NotaFinal) NotaFinal).NotaFinal(candidato);
+				case 5: NotaFinalController NotaFinal = new NotaFinalController();
+				NotaFinal.NotaFinal(aux);
 				break;
 				
-				case 6:  RetornaNotaFinal.RetornaNotaFinal(candidato);
+				case 6: RetornaNotaFinalController RetornaNotaFinal = new RetornaNotaFinalController();
+				RetornaNotaFinal.RetornaNotaFinal(aux);
 				break;
+				
 				
 				case 9:
 					opc = 9;

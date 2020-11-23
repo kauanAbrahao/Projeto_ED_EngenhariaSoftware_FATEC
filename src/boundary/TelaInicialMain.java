@@ -2,6 +2,7 @@ package boundary;
 
 import javax.swing.JOptionPane;
 
+import control.DefineCandidatoCPS;
 import entities.Candidato;
 
 
@@ -25,8 +26,7 @@ public class TelaInicialMain {
 				break;
 				
 			case 3: 
-			TelaInicialCPS VerLattes = new TelaInicialCPS();
-			VerLattes.telaInicio();
+				DefineCandidatoCPS.visualizaCandidatos();
 			break;
 			
 			case 9: JOptionPane.showMessageDialog(null, "Finalizado");

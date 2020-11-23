@@ -13,17 +13,17 @@ import entities.Candidato;
 
 public class AgendaEntrevistaController {
 	
-	public void AgendaEntrevista(Candidato candidato) throws IOException {
+	public void AgendaEntrevista(Candidato aux) throws IOException {
 		//getNotaEntrevista está retornando a nota do lattes
 		
-		String N = candidato.getDataEntrevista();
-		if(candidato.getDataEntrevista().contains("semdata")) {
+		String N = aux.getDataEntrevista();
+		if(aux.getDataEntrevista().contains("semdata")) {
 			
 			String NEntrevista = JOptionPane.showInputDialog("Agende à entrevista");
 			
-			candidato.setDataEntrevista(NEntrevista);
+			aux.setDataEntrevista(NEntrevista);
 			
-			alteraTxtComDadosNovos(candidato);
+			alteraTxtComDadosNovos(aux);
 		
 		} else {
 			JOptionPane.showMessageDialog(null, "A entrevista já foi agendada " + N);

@@ -13,17 +13,17 @@ import entities.Candidato;
 
 public class NotaFinalController {
 	
-	public void NotaFinal(Candidato candidato) throws IOException {
+	public void NotaFinal(Candidato aux) throws IOException {
 		//getNotaEntrevista está retornando a nota do lattes
 		
-		String N = candidato.getNotaFinal();
-		if(candidato.getNotaFinal().contains("nf-1")) {
+		String N = aux.getNotaFinal();
+		if(aux.getNotaFinal().contains("nf-1")) {
 			
 			String NFinal = JOptionPane.showInputDialog("Defina a nota final");
 			
-			candidato.setNotaFinal(NFinal);
+			aux.setNotaFinal(NFinal);
 			
-			alteraTxtComDadosNovos(candidato);
+			alteraTxtComDadosNovos(aux);
 		
 		} else {
 			JOptionPane.showMessageDialog(null, "A nota já foi definida " + N);

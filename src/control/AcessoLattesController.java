@@ -11,7 +11,7 @@ import boundary.AcessoLattes;
 
 public class AcessoLattesController {
 	
-	public void verificaLattes(Candidato candidato) throws IOException {
+	public void verificaLattes(Candidato aux) throws IOException {
 		String dir = System.getProperty("user.dir");
 		File arq = new File(dir, "CadastrosGerais.txt");
 		FileInputStream fluxo = new FileInputStream(arq); //abre o arquivo
@@ -20,7 +20,7 @@ public class AcessoLattesController {
 		String linha = buffer.readLine();
 		
 		while(linha!=null) {
-			if(linha.contains(candidato.getCpf())) {
+			if(linha.contains(aux.getCpf())) {
 				String[] parte = linha.split("\\,");
 				
 				if(parte[10].contentEquals("semlattes")) {

@@ -13,17 +13,17 @@ import entities.Candidato;
 
 public class NotaEntrevistaController {
 	
-	public void NotaEntrevista(Candidato candidato) throws IOException {
+	public void NotaEntrevista(Candidato aux) throws IOException {
 		//getNotaEntrevista está retornando a nota do lattes
 		
-		String N = candidato.getNotaEntrevista();
-		if(candidato.getNotaEntrevista().contains("ne-1")) {
+		String N = aux.getNotaEntrevista();
+		if(aux.getNotaEntrevista().contains("ne-1")) {
 			
 			String NEntrevista = JOptionPane.showInputDialog("Atribua uma nota à entrevista");
 			
-			candidato.setNotaEntrevista(NEntrevista);
+			aux.setNotaEntrevista(NEntrevista);
 			
-			alteraTxtComDadosNovos(candidato);
+			alteraTxtComDadosNovos(aux);
 		
 		} else {
 			JOptionPane.showMessageDialog(null, "Já foi atribuida nota à entrevista " + N);

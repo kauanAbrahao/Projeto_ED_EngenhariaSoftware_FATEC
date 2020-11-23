@@ -13,17 +13,17 @@ import entities.Candidato;
 
 public class NotaCurriculoController {
 	
-	public void NotaLattes(Candidato candidato) throws IOException {
+	public void NotaLattes(Candidato aux) throws IOException {
 		//getNotaEntrevista está retornando a nota do lattes
 		
-		String N = candidato.getNotaLattes();
-		if(candidato.getNotaLattes().contains("nl-1")) {
+		String N = aux.getNotaLattes();
+		if(aux.getNotaLattes().contains("nl-1")) {
 			
 			String Nlattes = JOptionPane.showInputDialog("Atribua uma nota ao Lattes");
 			
-			candidato.setNotaLattes(Nlattes);
+			aux.setNotaLattes(Nlattes);
 			
-			alteraTxtComDadosNovos(candidato);
+			alteraTxtComDadosNovos(aux);
 		
 		} else {
 			JOptionPane.showMessageDialog(null, "Já foi atribuida nota ao Lattes " + N);

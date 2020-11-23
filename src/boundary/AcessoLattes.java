@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 public class AcessoLattes {
 	//Digite o CPF do Candidato
 	String CPF;
-	public void verificaLattes(Candidato candidato) throws IOException {
+	public void verificaLattes(Candidato candidato) throws Exception {
 		ListaCandidatos lista = new ListaCandidatos();
 		lista.buscaCandidatosPersistidos();
 		
