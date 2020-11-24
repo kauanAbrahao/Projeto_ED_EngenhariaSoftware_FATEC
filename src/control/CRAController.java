@@ -14,11 +14,11 @@ import entities.Candidato;
 import entities.ListaCandidatos;
 
 public class CRAController {
-	
+	int cont = 0;
 	public void visualizaCandidatos() throws IOException {
 		ListaCandidatos lista = new ListaCandidatos();
 		lista.buscaCandidatosPersistidos();
-		lista.mostraListaOrdanadaPorNome("apenas matriculados");
+		lista.mostraListaOrdanadaPorNome("apenas matriculados", cont);
 		
 		
 	}

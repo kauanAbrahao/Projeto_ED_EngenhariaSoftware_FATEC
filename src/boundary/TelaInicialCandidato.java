@@ -48,7 +48,7 @@ public class TelaInicialCandidato {
 				} else {
 					JOptionPane.showMessageDialog(null, "Aguarde a divulgação dos resultados");
 				}
-				
+				break;
 				case 9:
 				opc = 9;
 				break;

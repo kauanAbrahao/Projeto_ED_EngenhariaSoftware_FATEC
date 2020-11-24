@@ -211,7 +211,8 @@ public class ListaCandidatos {
 	}
 	
 //	---------------------------------------------------------------------
-	public void mostraListaOrdanadaPorNome(String verificacao) {
+	public void mostraListaOrdanadaPorNome(String verificacao, int cont) {
+		
 		QuickSort quicksort = new QuickSort();
 		//Transforma a lista em vetor para ordenar.
 		
@@ -231,7 +232,9 @@ public class ListaCandidatos {
 			aux = vet[i];
 			inserirFim(aux);
 		}
+		if (cont < 1) {
 		JOptionPane.showMessageDialog(null, mostraLista(verificacao, 1));;
+		}
 	}
 	
 //	-----------------------------------------------------------------
