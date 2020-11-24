@@ -25,7 +25,7 @@ public class TelaInicialCandidato {
 		
 		while(opc != 9) {
 			opc = Integer.parseInt(JOptionPane.showInputDialog("== OPÇÕES PARA O CANDIDATO ==" + "\n" + "1 - Inscrição em Processo Seletivo" + "\n" + 
-			"2 - Verificar Situação no Processo Seletivo" + "\n"+ "3 - Verificar data entrevista"+ "\n"+ "4 - Verificar Nota Final" + "5 - VERIFICAR RESULTADO"+ "\n" + "9 - Retornar"));
+			"2 - Verificar Situação no Processo Seletivo" + "\n"+ "3 - Verificar data entrevista"+ "\n"+ "4 - Verificar Nota Final" + "\n5 - VERIFICAR RESULTADO"+ "\n" + "9 - Retornar"));
 			
 			switch(opc) {
 				case 1: inscreve.inscreveProcesso(candidato);

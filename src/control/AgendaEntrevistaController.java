@@ -19,7 +19,7 @@ public class AgendaEntrevistaController {
 		String N = aux.getDataEntrevista();
 		if(aux.getDataEntrevista().contains("semdata")) {
 			
-			String NEntrevista = JOptionPane.showInputDialog("Agende à entrevista");
+			String NEntrevista = JOptionPane.showInputDialog("Inserir data e hora para a entrevista: ");
 			
 			aux.setDataEntrevista(NEntrevista);
 			

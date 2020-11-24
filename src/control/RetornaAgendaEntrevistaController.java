@@ -16,9 +16,9 @@ public class RetornaAgendaEntrevistaController {
 	public void RetornaAgenda(Candidato candidato) throws IOException {
 		//getNotaEntrevista está retornando a nota do lattes
 		if(!candidato.getDataEntrevista().contains("semdata")) {
-			JOptionPane.showMessageDialog(null, "A data para sua entrevista é: " + candidato.getDataEntrevista());
+			JOptionPane.showMessageDialog(null, "SUA ENTREVISTA FOI AGENDADA!\nData e Horário:" + candidato.getDataEntrevista());
 		} else {
-			JOptionPane.showMessageDialog(null, "A data para sua entrevista ainda não foi definida ");
+			JOptionPane.showMessageDialog(null, "A data para sua entrevista ainda não foi definida. Por favor, aguarde. ");
 		}
 	}
 	

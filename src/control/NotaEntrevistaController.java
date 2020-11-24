@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 import javax.swing.JOptionPane;
-import control.NotaFinalController;
+
 import entities.Candidato;
 
 public class NotaEntrevistaController {

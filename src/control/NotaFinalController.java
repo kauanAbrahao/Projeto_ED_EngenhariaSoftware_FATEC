@@ -7,8 +7,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import javax.swing.JOptionPane;
-
 import entities.Candidato;
 
 public class NotaFinalController {

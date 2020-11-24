@@ -5,9 +5,10 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import entities.Candidato;
+
 import javax.swing.JOptionPane;
-import boundary.AcessoLattes;
+
+import entities.Candidato;
 
 public class AcessoLattesController {
 	

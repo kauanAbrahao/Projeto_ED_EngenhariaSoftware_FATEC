@@ -1,12 +1,9 @@
 package boundary;
 
-import java.io.IOException;
-import entities.Candidato;
-import entities.ListaCandidatos;
-import entities.Candidato;
-import entities.ListaCandidatos;
-
 import javax.swing.JOptionPane;
+
+import entities.Candidato;
+import entities.ListaCandidatos;
 
 public class AcessoLattes {
 	//Digite o CPF do Candidato
@@ -14,10 +11,10 @@ public class AcessoLattes {
 	public void verificaLattes(Candidato candidato) throws Exception {
 		ListaCandidatos lista = new ListaCandidatos();
 		lista.buscaCandidatosPersistidos();
-		
-		CPF = JOptionPane.showInputDialog("Escolha um candidato digitando seu CPF");
-		
+		lista.mostraListaOrdanadaPorNome("apenas matriculados");
+		String CPF = JOptionPane.showInputDialog(lista.mostraLista("apenas matriculados", 1) + "\n\n" + "Por favor, inserir o CPF do candidado desejado:");
 		candidato = lista.buscaCandidatoPorCPF(CPF);
+		JOptionPane.showMessageDialog(null, candidato.getLattes());
 		
 	}
 }
