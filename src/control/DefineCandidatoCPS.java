@@ -17,6 +17,8 @@ import entities.ListaCandidatos;
 public class DefineCandidatoCPS {
 	
 	public static void visualizaCandidatos() throws Exception {
+		JOptionPane.showMessageDialog(null, "Bem vindo ao CPS");
+		JOptionPane.showMessageDialog(null, "Essa é a lista de candidatos inscritos: ");
 		AcessoLattes  VerLattes = new AcessoLattes();
 		ListaCandidatos lista = new ListaCandidatos();
 		lista.buscaCandidatosPersistidos();

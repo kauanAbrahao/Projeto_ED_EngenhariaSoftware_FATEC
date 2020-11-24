@@ -15,7 +15,7 @@ public class AcessoLattes {
 		ListaCandidatos lista = new ListaCandidatos();
 		lista.buscaCandidatosPersistidos();
 		
-		CPF = JOptionPane.showInputDialog("Digite o CPF do candidato ");
+		CPF = JOptionPane.showInputDialog("Escolha um candidato digitando seu CPF");
 		
 		candidato = lista.buscaCandidatoPorCPF(CPF);
 		

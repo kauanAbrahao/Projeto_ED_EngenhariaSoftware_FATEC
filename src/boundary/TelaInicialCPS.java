@@ -26,8 +26,9 @@ public class TelaInicialCPS {
 		int opc = -1;
 		
 		while(opc != 9) {
-			opc = Integer.parseInt(JOptionPane.showInputDialog("== OPÇÕES PARA O CPS ==" + "\n" + "1 - Ver Lattes" + "\n" + 
-			"2 - Atribuir nota ao Lattes" + "\n" + "3 - Agendar entrevista" + "\n" +  "4 - Atribuir nota à entrevista" + "\n" +  "5 - Retornar nota final" +  "\n" + "9 - Retornar"));
+			JOptionPane.showMessageDialog(null, "Você selecionou o candidato: " + aux.getNome().toUpperCase() + "!");
+			opc = Integer.parseInt(JOptionPane.showInputDialog("== OPÇÕES PARA O CPS ==" + "\n" + "1 - Ver o curriculo Lattes do candidato" + "\n" + 
+			"2 - Atribuir nota ao Lattes" + "\n" + "3 - Agendar entrevista com o candidato" + "\n" +  "4 - Atribuir nota à entrevista" + "\n" +  "5 - Divulgar nota final ao candidato" +  "\n" + "9 - Retornar"));
 			
 			switch(opc) {
 				case 1: AcessoLattesController VerLattes = new AcessoLattesController();
