@@ -1,1 +1,1 @@
-kauan,123,gagaga,11111111111,2253652,adadadad,adadad,8,6,7.0,naoanalisado,semdata,S
+kauan,123,gagaga,11111111111,2253652,adadadad,adadad,8,6,7.0,naoanalisado,5-11,S

@@ -24,9 +24,12 @@ public class TelaInicialCPS {
 		
 		
 		int opc = -1;
-		
+		int cont = 0;
 		while(opc != 9) {
+			if (cont != 1 ) {
 			JOptionPane.showMessageDialog(null, "Você selecionou o candidato: " + aux.getNome().toUpperCase() + "!");
+			cont = cont + 1;
+			}
 			opc = Integer.parseInt(JOptionPane.showInputDialog("== OPÇÕES PARA O CPS ==" + "\n" + "1 - Ver o curriculo Lattes do candidato" + "\n" + 
 			"2 - Atribuir nota ao Lattes" + "\n" + "3 - Agendar entrevista com o candidato" + "\n" +  "4 - Atribuir nota à entrevista" + "\n" +  "5 - Divulgar nota final ao candidato" +  "\n" + "9 - Retornar"));
 			
