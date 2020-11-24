@@ -7,7 +7,7 @@ import javax.swing.JOptionPane;
 import entities.Candidato;
 
 public class SignIn {
-	public void interfaceLogin() throws IOException {
+	public void interfaceLogin(boolean divulgacao) throws IOException {
 	JOptionPane.showMessageDialog(null, "== Você está no SysGETI - Perfil Aluno ==");
 	int opc_login = -1;
 	
@@ -24,7 +24,7 @@ public class SignIn {
 		
 		if(candidato != null) {
 			TelaInicialCandidato tela = new TelaInicialCandidato();
-			tela.telaInicial(candidato);
+			tela.telaInicial(candidato, divulgacao);
 			opc_login = 9;
 		}
 		

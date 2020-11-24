@@ -1,1 +1,3 @@
-kauan,123,gagaga,11111111111,2253652,adadadad,adadad,8,6,7.0,naoanalisado,5-11,S
+kauan,123,kauan abrahao,43221801831,26858021,lattes.com/kauanabrahao,historico,10,8,9.0,deferido,11/12 - 13h,S
+felipe,123,felipe sardinha,00123456789,123456,felipesardinha.lattes,anexado,2,10,6.0,deferido,15/12 - 11h,S
+gui,123,guilherme sardinha,99789456123,123456,lattes.com/guisardinha,anexado,5,2,3.5,deferido,13/12 - 20h,S

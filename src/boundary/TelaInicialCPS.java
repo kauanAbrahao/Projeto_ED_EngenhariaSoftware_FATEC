@@ -4,10 +4,8 @@ import javax.swing.JOptionPane;
 
 import control.AcessoLattesController;
 import control.AgendaEntrevistaController;
-import control.DefineCandidatoCPS;
 import control.NotaCurriculoController;
 import control.NotaEntrevistaController;
-import control.NotaFinalController;
 import control.RetornaNotaFinalController;
 import entities.Candidato;
 

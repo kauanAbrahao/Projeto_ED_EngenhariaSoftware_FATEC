@@ -9,12 +9,6 @@ import java.io.InputStreamReader;
 import javax.swing.JOptionPane;
 
 import boundary.TelaInicialCPS;
-import control.AcessoLattesController;
-import control.AgendaEntrevistaController;
-import control.NotaCurriculoController;
-import control.NotaEntrevistaController;
-import control.NotaFinalController;
-import control.RetornaNotaFinalController;
 
 public class ListaCandidatos {
 	Candidato inicio;
@@ -148,27 +142,49 @@ public class ListaCandidatos {
 		
 	
 //	-----------------------------------------------------------
-	public String mostraLista(String verificacao) {
+	public String mostraLista(String verificacao, int nomeOuNota) {
 		String r = "";
 		Candidato aux = inicio;
-		
-		if (verificacao.contains("apenas matriculados")) {
-			while (aux != null){
-				if(!aux.getStatus().contains("semstatus")) {
-					r = r + "\n" + "Nome: " + aux.getNome().toUpperCase() + ", CPF: " + aux.getCpf().toUpperCase();
+		if (nomeOuNota == 1) {
+			if (verificacao.contains("apenas matriculados")) {
+				while (aux != null){
+					if(!aux.getStatus().contains("semstatus")) {
+						r = r + "\n" + "Nome: " + aux.getNome().toUpperCase() + ", CPF: " + aux.getCpf().toUpperCase();
+					}
+					aux = aux.getProximo();
 				}
-				aux = aux.getProximo();
+				return r;
+				
+			} else {
+				while (aux != null){
+					r = r + "\n" + "Nome: " + aux.getNome().toUpperCase() + ", CPF: " + aux.getCpf().toUpperCase();
+					aux = aux.getProximo();
+				}
+				return r;
+				
 			}
-			return r;
-			
-		} else {
-			while (aux != null){
-				r = r + "\n" + "Nome: " + aux.getNome().toUpperCase() + ", CPF: " + aux.getCpf().toUpperCase();
-				aux = aux.getProximo();
+		}else {
+			if (verificacao.contains("apenas matriculados e deferidos")) {
+				while (aux != null){
+					if(aux.getStatus().contains("deferido")) {
+						r = r + "\n" + "Nome: " + aux.getNome().toUpperCase() + ", NOTA FINAL: " + aux.getNotaFinal();
+					}
+					aux = aux.getProximo();
+				}
+				r = r + "\n\n" + "CANDIDATO: Para maiores informações, faça login no Sistema!";
+				return r;
+				
+			} else {
+				while (aux != null){
+					r = r + "\n" + "Nome: " + aux.getNome().toUpperCase() + ", CPF: " + aux.getCpf().toUpperCase();
+					aux = aux.getProximo();
+				}
+				return r;
+				
 			}
-			return r;
 			
 		}
+		
 	}
 	
 //	---------------------------------------------------------------------------
@@ -203,7 +219,7 @@ public class ListaCandidatos {
 		vet = transformaListaEmVetor(vet);
 		
 		//Chama o QuickSort
-		vet = quicksort.quickSort(vet, 0, vet.length-1);
+		vet = quicksort.quickSort(vet, 0, vet.length-1, 1);
 		
 		//Transforma o vetor ordenado em Lista Encadeada novamente
 		inicio = null;
@@ -215,7 +231,31 @@ public class ListaCandidatos {
 			aux = vet[i];
 			inserirFim(aux);
 		}
-		JOptionPane.showMessageDialog(null, mostraLista(verificacao));;
+		JOptionPane.showMessageDialog(null, mostraLista(verificacao, 1));;
+	}
+	
+//	-----------------------------------------------------------------
+	public void mostraListaOrdanadaPorNotaFinal(String verificacao) {
+		QuickSort quicksort = new QuickSort();
+		//Transforma a lista em vetor para ordenar.
+		
+		Candidato vet[] = new Candidato[this.tamanho];
+		vet = transformaListaEmVetor(vet);
+		
+		//Chama o QuickSort
+		vet = quicksort.quickSort(vet, 0, vet.length-1, 2);
+		
+		//Transforma o vetor ordenado em Lista Encadeada novamente
+		inicio = null;
+		fim = null;
+		this.tamanho=0;
+		Candidato aux;
+		
+		for (int i = 0; i < vet.length; i++) {
+			aux = vet[i];
+			inserirFim(aux);
+		}
+		JOptionPane.showMessageDialog(null, mostraLista(verificacao, 2));;
 	}
 	
 //	-----------------------------------------------------------------

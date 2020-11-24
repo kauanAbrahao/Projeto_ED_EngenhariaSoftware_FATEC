@@ -131,4 +131,27 @@ public class CRAController {
 		return conteudo.toString();
 	}
 
+
+	public boolean divulgaLista() throws IOException {
+		ListaCandidatos lista = new ListaCandidatos();
+		lista.buscaCandidatosPersistidos();
+		
+		Candidato aux = lista.getInicio();
+		while(aux!=null) {
+			if(aux.getStatus().contains("semstatus") || aux.getStatus().contains("indeferido")) {
+				aux = aux.getProximo();
+			} 
+			else {
+				if(aux.getNotaFinal().contains("nf-1")) {
+					JOptionPane.showMessageDialog(null, "ATENÇÃO! Todos os Candidatos participantes do Processo Seletivo necessitam"
+							+ " do campo Nota Final atribuído antes da divulgação.");
+					return false;
+				}
+			}
+			aux = aux.getProximo();
+		}
+		JOptionPane.showMessageDialog(null, "== LISTA DE CLASSIFICAÇÃO DIVULGADA ==");
+		return true;
+	}
+
 }
