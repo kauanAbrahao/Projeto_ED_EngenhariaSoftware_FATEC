@@ -14,7 +14,6 @@ public class NotaFinalController {
 	public void NotaFinal(Candidato aux) throws IOException {
 		//getNotaEntrevista está retornando a nota do lattes
 		
-		String N = aux.getNotaFinal();
 		if(aux.getNotaFinal().contains("nf-1") && !aux.getNotaLattes().contains("nl-1") && !aux.getNotaEntrevista().contains("ne-1")) {
 			double N1 = Double.parseDouble(aux.getNotaLattes());
 			double N2 = Double.parseDouble(aux.getNotaEntrevista());
